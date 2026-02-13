@@ -1,29 +1,40 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Donate to charity: water and provide clean water access to families in need. Every dollar counts." />
   <title>Charity: Water Donation Page</title>
 
   <style>
+    /* -------- CSS VARIABLES -------- */
+    :root {
+      --yellow: #FFC907;
+      --black: #1A1A1A;
+      --blue-green: #77A8BB;
+      --blue: #003366;
+      --white: #FFF7E1;
+      --button-bg: #003366;
+      --button-hover: #002244;
+      --transition: all 0.3s ease;
+    }
+
     /* -------- RESET -------- */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Proxima Mono, Helvetica, sans-serif;
     }
 
-    /* -------- COLORS -------- */
-    : root {
-      --yellow: #FFC907;
-      --black: #1A1A1A
-      --blue-green: #77A8BB;
-      --blue: #003366;
-      --white: #FFF7E1;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       background-color: var(--black);
+      font-family: 'Proxima Nova', 'Helvetica Neue', Helvetica, sans-serif;
+      color: var(--black);
+      line-height: 1.6;
     }
 
     /* -------- HEADER -------- */
@@ -34,40 +45,62 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 1.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     header .logo {
-      font-weight: bold;
-      font-size: 1.2rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: 0.5px;
     }
 
     header button {
-      background-color: var(--blue-btn);
+      background-color: var(--button-bg);
       color: var(--white);
-      border: none;
-      padding: 0.6rem 1rem;
-      font-weight: bold;
+      border: 2px solid var(--button-bg);
+      padding: 0.7rem 1.2rem;
+      font-weight: 600;
+      font-size: 0.95rem;
       cursor: pointer;
       border-radius: 4px;
+      transition: var(--transition);
+    }
+
+    header button:hover {
+      background-color: var(--button-hover);
+      border-color: var(--button-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    header button:active {
+      transform: translateY(0);
     }
 
     /* -------- MAIN SECTION -------- */
     .hero {
       background-color: var(--yellow);
-      padding: 2rem 1.5rem 3rem;
+      padding: 3rem 1.5rem;
       text-align: center;
+      color: var(--black);
     }
 
     .hero h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
     }
 
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      font-size: 1rem;
-      line-height: 1.5;
+    .hero > p {
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(26, 26, 26, 0.85);
     }
 
     /* -------- IMAGE COMPARISON -------- */
@@ -75,102 +108,215 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 2rem;
-      margin-bottom: 2.5rem;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
     }
 
     .image-block {
-      max-width: 260px;
+      max-width: 280px;
       text-align: center;
+      flex: 1;
+      min-width: 240px;
     }
 
     .image-block img {
       width: 100%;
-      border-radius: 6px;
-      margin-bottom: 0.5rem;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: var(--transition);
+      object-fit: cover;
+    }
+
+    .image-block img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
     }
 
     .image-block span {
-      font-size: 0.9rem;
-      font-weight: bold;
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--black);
     }
 
     /* -------- MAIN CTA BUTTON -------- */
     .donate-main {
-      background-color: var(--green-btn);
+      background-color: var(--button-bg);
       color: var(--white);
-      font-size: 1.5rem;
-      padding: 1rem 2.5rem;
-      border: none;
-      border-radius: 8px;
+      font-size: 1.2rem;
+      padding: 1.1rem 2.8rem;
+      border: 2px solid var(--button-bg);
+      border-radius: 6px;
       cursor: pointer;
-      font-weight: bold;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      transition: var(--transition);
+      display: inline-block;
+      margin: 0 auto;
+    }
+
+    .donate-main:hover {
+      background-color: var(--button-hover);
+      border-color: var(--button-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0, 51, 102, 0.3);
+    }
+
+    .donate-main:active {
+      transform: translateY(-1px);
+    }
+
+    .donate-main:focus {
+      outline: 3px solid var(--yellow);
+      outline-offset: 2px;
     }
 
     /* -------- RESPONSIVE -------- */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      header button {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 2rem 1rem;
+      }
+
       .hero h1 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero > p {
+        font-size: 1rem;
+      }
+
+      .images {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .image-block {
+        max-width: 100%;
       }
 
       .donate-main {
         width: 100%;
+        max-width: 300px;
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+
+      header .logo {
+        font-size: 1.1rem;
+      }
+
+      .donate-main {
+        font-size: 1rem;
+        padding: 0.9rem 1.8rem;
+      }
+    }
+
+    /* -------- ACCESSIBILITY -------- */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
       }
     }
   </style>
 </head>
-
 <body>
-
   <!-- HEADER -->
-  <header>
+  <header role="banner">
     <div class="logo">charity: water</div>
-    <button id="donateHeaderBtn">Donate Now</button>
+    <button id="donateHeaderBtn" aria-label="Navigate to donation page">Donate Now</button>
   </header>
-
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <h1>Turn spare change into clean water!</h1>
-
-    <p>
-      Your fast, hassle-free, secure donation to charity: water becomes safe water
-      for families — every dollar counts — proven with clear impact updates that show
-      exactly where your money goes and the lives it transforms.
-    </p>
-
-    <div class="images">
-      <div class="image-block">
-        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d" alt="Before clean water">
-        <span>Before clean water</span>
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">Turn spare change into clean water!</h1>
+      <p>
+        Your fast, hassle-free, secure donation to charity: water becomes safe water
+        for families — every dollar counts — proven with clear impact updates that show
+        exactly where your money goes and the lives it transforms.
+      </p>
+      <!-- BEFORE / AFTER IMAGES -->
+      <div class="images" role="region" aria-label="Before and after clean water access">
+        <figure class="image-block">
+          <img 
+            src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=400&q=80" 
+            alt="Community before access to clean water"
+            loading="lazy"
+          />
+          <figcaption><span>Before clean water</span></figcaption>
+        </figure>
+        <figure class="image-block">
+          <img 
+            src="https://images.unsplash.com/photo-1543248939-ff40856f65d4?w=400&q=80" 
+            alt="Community after access to clean water"
+            loading="lazy"
+          />
+          <figcaption><span>After clean water</span></figcaption>
+        </figure>
       </div>
-
-      <div class="image-block">
-        <img src="https://images.unsplash.com/photo-1543248939-ff40856f65d4" alt="After clean water">
-        <span>After clean water</span>
-      </div>
-    </div>
-
-    <button class="donate-main" id="donateMainBtn">
-      DONATE NOW
-    </button>
-  </section>
-
+      <!-- MAIN CTA -->
+      <button 
+        class="donate-main" 
+        id="donateMainBtn"
+        aria-label="Make a donation to charity water"
+      >
+        DONATE NOW
+      </button>
+    </section>
+  </main>
   <!-- JAVASCRIPT -->
   <script>
+    // Get button elements
     const headerBtn = document.getElementById("donateHeaderBtn");
     const mainBtn = document.getElementById("donateMainBtn");
 
+    // Define donation URL
+    const donationUrl = "https://www.charitywater.org/donate";
+
+    // Header button click handler
     headerBtn.addEventListener("click", () => {
-      alert("Header Donate button clicked!");
-      // Later: window.location.href = "https://www.charitywater.org/donate";
+      window.location.href = donationUrl;
     });
 
+    // Main button click handler
     mainBtn.addEventListener("click", () => {
-      alert("Main Donate button clicked!");
-      // Later: window.location.href = "https://www.charitywater.org/donate";
+      window.location.href = donationUrl;
+    });
+
+    // Add keyboard support for buttons
+    headerBtn.addEventListener("keypress", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        headerBtn.click();
+      }
+    });
+
+    mainBtn.addEventListener("keypress", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        mainBtn.click();
+      }
     });
   </script>
-
 </body>
 </html>
-
