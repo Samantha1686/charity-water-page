@@ -52,9 +52,18 @@
     }
 
     header .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
       font-weight: 700;
       font-size: 1.3rem;
       letter-spacing: 0.5px;
+    }
+
+    header .logo img {
+      height: 1.08em;
+      width: auto;
+      display: block;
     }
 
     header button {
@@ -244,7 +253,10 @@
 <body>
   <!-- HEADER -->
   <header role="banner">
-    <div class="logo">charity: water</div>
+    <div class="logo">
+      <img src="https://www.charitywater.org/favicon.ico" alt="charity: water logo" />
+      <span>charity: water</span>
+    </div>
     <button id="donateHeaderBtn" aria-label="Navigate to donation page">Donate Now</button>
   </header>
   <!-- MAIN CONTENT -->
@@ -261,7 +273,7 @@
       <div class="images" role="region" aria-label="Before and after clean water access">
         <figure class="image-block">
           <img 
-            src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=400&q=80" 
+            src="img/malawi-before-clean-water.jpg" 
             alt="Community before access to clean water"
             loading="lazy"
           />
@@ -269,7 +281,7 @@
         </figure>
         <figure class="image-block">
           <img 
-            src="https://images.unsplash.com/photo-1543248939-ff40856f65d4?w=400&q=80" 
+            src="img/children-around-clean-water-faucet.jpg" 
             alt="Community after access to clean water"
             loading="lazy"
           />
