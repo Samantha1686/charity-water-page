@@ -1,0 +1,176 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charity: Water Donation Page</title>
+
+  <style>
+    /* -------- RESET -------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Proxima Mono, Helvetica, sans-serif;
+    }
+
+    /* -------- COLORS -------- */
+    : root {
+      --yellow: #FFC907;
+      --black: #1A1A1A
+      --blue-green: #77A8BB;
+      --blue: #003366;
+      --white: #FFF7E1;
+    }
+
+    body {
+      background-color: var(--black);
+    }
+
+    /* -------- HEADER -------- */
+    header {
+      background-color: var(--black);
+      color: var(--white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+
+    header .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    header button {
+      background-color: var(--blue-btn);
+      color: var(--white);
+      border: none;
+      padding: 0.6rem 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    /* -------- MAIN SECTION -------- */
+    .hero {
+      background-color: var(--yellow);
+      padding: 2rem 1.5rem 3rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* -------- IMAGE COMPARISON -------- */
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .image-block {
+      max-width: 260px;
+      text-align: center;
+    }
+
+    .image-block img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+
+    .image-block span {
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    /* -------- MAIN CTA BUTTON -------- */
+    .donate-main {
+      background-color: var(--green-btn);
+      color: var(--white);
+      font-size: 1.5rem;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* -------- RESPONSIVE -------- */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .donate-main {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">charity: water</div>
+    <button id="donateHeaderBtn">Donate Now</button>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Turn spare change into clean water!</h1>
+
+    <p>
+      Your fast, hassle-free, secure donation to charity: water becomes safe water
+      for families — every dollar counts — proven with clear impact updates that show
+      exactly where your money goes and the lives it transforms.
+    </p>
+
+    <div class="images">
+      <div class="image-block">
+        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d" alt="Before clean water">
+        <span>Before clean water</span>
+      </div>
+
+      <div class="image-block">
+        <img src="https://images.unsplash.com/photo-1543248939-ff40856f65d4" alt="After clean water">
+        <span>After clean water</span>
+      </div>
+    </div>
+
+    <button class="donate-main" id="donateMainBtn">
+      DONATE NOW
+    </button>
+  </section>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const headerBtn = document.getElementById("donateHeaderBtn");
+    const mainBtn = document.getElementById("donateMainBtn");
+
+    headerBtn.addEventListener("click", () => {
+      alert("Header Donate button clicked!");
+      // Later: window.location.href = "https://www.charitywater.org/donate";
+    });
+
+    mainBtn.addEventListener("click", () => {
+      alert("Main Donate button clicked!");
+      // Later: window.location.href = "https://www.charitywater.org/donate";
+    });
+  </script>
+
+</body>
+</html>
+
